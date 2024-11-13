@@ -7,8 +7,10 @@ from random import random
 from flasgger import Swagger, SwaggerView
 from flask import Flask, jsonify, make_response, request
 from flask.blueprints import Blueprint
-from flask_classy import FlaskView
+#from flask_classy import FlaskView
+from flask_restful import Api, Resource
 from flask_cors import CORS, cross_origin
+from collections.abc import Mapping
 
 # Couchbase Imports
 import couchbase.search as FT
@@ -23,9 +25,9 @@ from couchbase.exceptions import *
 # Query and Search.
 # The default username and password are set in `wait-for-couchbase.sh`
 # -----------LOCAL-----------
-# CONNSTR = 'couchbase://db'
-# USERNAME = 'Administrator'
-# PASSWORD = 'password'
+CONNSTR = 'couchbase://localhost'
+USERNAME = 'Administrator'
+PASSWORD = 'password'
 # ----------CAPELLA----------
 # CONNSTR = 'couchbases://db'
 # USERNAME = 'cbdemo'
@@ -847,8 +849,11 @@ def convdate(rawdate):
     return day.weekday()
 
 
+#def genToken(username):
+#    return jwt.encode({'user': username}, JWT_SECRET, algorithm='HS256').decode("ascii")
+
 def genToken(username):
-    return jwt.encode({'user': username}, JWT_SECRET, algorithm='HS256').decode("ascii")
+    return jwt.encode({'user': username}, JWT_SECRET, algorithm='HS256')
 
 
 def auth(bearerHeader, username):
