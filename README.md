@@ -44,6 +44,7 @@
    b) 설치 후, "Setting" > "Sample Buckets" 페이지에서 travel-sample 를 선택 후 "Load Sample Data" 를 클릭하세요.<br>
    c) 아래와 같이 FTS(FullTextSearch) 서비스의 검색 기능을 활용하기 위해 아래와 같이 검색 인덱스를 생성하세요<br>
    
+      $ cd try-cb-python
       $ curl -s -u Administrator:password -X PUT http://127.0.0.1:8094/api/index/hotels-index \
         -H 'cache-control: no-cache' -H 'content-type: application/json' \
         -d @fts-hotels-index.json
