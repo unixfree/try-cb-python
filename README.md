@@ -94,4 +94,4 @@
 [Swagger]: https://swagger.io/resources/open-api/  <br>
 [Vue]: https://vuejs.org/  <br>
 [Bootstrap]: https://getbootstrap.com/  <br>
-[카우치베이스 다운로드 사이트: https://www.couchbase.com/downloads/ <br>
+[카우치베이스 다운로드 사이트]: https://www.couchbase.com/downloads/ <br>
