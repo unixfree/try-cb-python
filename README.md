@@ -23,8 +23,8 @@
    b) 아래와 같이 애플리케이션을 다운로드 하세요
 
       $ cd travel-app
-      $ git clone https://github.com/unixfree/try-cb-python-7.3.git
-      $ git clone https://github.com/unixfree/try-cb-frontend-v2-7.1.git
+      $ git clone https://github.com/unixfree/try-cb-python.git
+      $ git clone https://github.com/unixfree/try-cb-frontend-v2.git
 
       이 애플리케이션은 Docker로 실행할 수 있으나, 
       DB(Couchabse), Backend(Flask), Frontend(Vue)를 각각 구성, 수행하는 방법을 따릅니다.
@@ -32,49 +32,64 @@
 
 ## 1) Configure & Run Couchabse Server
 
-   로컬 Labtop(Windows,MacBook)에 설치 할 수도 있고, Linux 서버에 설치형, 완전 구독형 Capella(DBaaS), Docker Container로 구성할 수 있습니다.
-
-   여기에서는 로컬 Labtop(Windows,MacBook)에 설치하는 구성으로 설명하겠습니다.
-   a) 카우치베이스 다운로드 사이트에서 Windows,MacBook 용 Couchbase를 다운 받아서 설치하세요.
-      ID/PW 를 Administrator / password 로 구성하세요.
-   b) 설치 후, "Setting" > "Sample Buckets" 페이지에서 travel-sample 를 선택 후 "Load Sample Data" 를 클릭하세요.
-   c) 아래와 같이 FTS(FullTextSearch) 서비스의 검색 기능을 활용하기 위해 아래와 같이 검색 인덱스를 생성하세요
+   로컬 Labtop(Windows,MacBook)에 설치 할 수도 있고, Linux 서버에 설치형, 완전 구독형 Capella(DBaaS), Docker Container로 구성할 수 있습니다. <br>
+<br>
+   여기에서는 로컬 Labtop(Windows,MacBook)에 설치하는 구성으로 설명하겠습니다.<br>
+   아래 페이지를 참고 하십시오. .<br>
+   https://docs.couchbase.com/server/current/install/install-package-windows.html  <br>
+   https://docs.couchbase.com/server/current/install/macos-install.html  <br>
+   
+   a) [카우치베이스 다운로드 사이트]에서 Windows,MacBook 용 Couchbase를 다운 받아서 설치하세요.<br>
+      ID/PW 를 Administrator / password 로 구성하세요.<br>
+   b) 설치 후, "Setting" > "Sample Buckets" 페이지에서 travel-sample 를 선택 후 "Load Sample Data" 를 클릭하세요.<br>
+   c) 아래와 같이 FTS(FullTextSearch) 서비스의 검색 기능을 활용하기 위해 아래와 같이 검색 인덱스를 생성하세요<br>
+   
       $ curl -s -u Administrator:password -X PUT http://127.0.0.1:8094/api/index/hotels-index \
         -H 'cache-control: no-cache' -H 'content-type: application/json' \
         -d @fts-hotels-index.json
 
 ## 2) Configure & Run Backend(Flask) Server
-
-   a) 환경 변수 설정
-      $ cd try-cb-python-7.3
+<br>
+   a) 환경 변수 설정<br>
+   
+      $ cd try-cb-python
       $ export CB_HOST=http://127.0.0.1
       $ export CB_USER=Administrator
       $ export CB_PSWD=password
-   b) Flask 구동을 위한 관련 패키지 설치
+      
+   b) Flask 구동을 위한 관련 패키지 설치<br>
+   
       $ pip install -r requirements.txt
-   c) Flask 구동
+      
+   c) Flask 구동<br>
+   
       $ python3 travel.py -c $CB_HOST -u $CB_USER -p $CB_PSWD
 
 ## 3) Configure & Run Frontend(Vue) Server
 
-   참고 : Backend(Flask)와 다른 터미널에서 수행.
-   a) 구동을 위해 필요한 환경 구성
-      $ cd try-cb-frontend-v2-7.1
+   참고 : Backend(Flask)와 다른 터미널에서 수행.<br>
+   
+   a) 구동을 위해 필요한 환경 구성<br>
+   
+      $ cd try-cb-frontend-v2
       $ npm install
-   b) Vue 구동
+      
+   b) Vue 구동<br>
+   
       $ npm run serve
 
 ## 4) Start Demonstration
 
-   DB(Couchbase)는 http://localhost:8091 로 접속하고, 
-   Backend(Flask)는 http://localhost:8091, 
-   Frontend(Vue)는 http://localhost:8081로 접속합니다.
-
-   http://localhost:8081 로 접속 후, 계정 하나를 등록(Register) 하고 항공 스케줄 검색/예약/구매 및 호텔 검색을 수행할 수 있습니다.
-
+   DB(Couchbase)는 http://localhost:8091 로 접속하고, <br>
+   Backend(Flask)는 http://localhost:8091, <br>
+   Frontend(Vue)는 http://localhost:8081로 접속합니다.<br>
+<br>
+   http://localhost:8081 로 접속 후, 계정 하나를 등록(Register) 하고 항공 스케줄 검색/예약/구매 및 호텔 검색을 수행할 수 있습니다.<br>
+<br>
 [Couchbase Server]: https://www.couchbase.com/
 [Flask]: https://flask.palletsprojects.com/
 [Python]: https://www.python.org/
 [Swagger]: https://swagger.io/resources/open-api/
 [Vue]: https://vuejs.org/
 [Bootstrap]: https://getbootstrap.com/
+[카우치베이스 다운로드 사이트: https://www.couchbase.com/downloads/
