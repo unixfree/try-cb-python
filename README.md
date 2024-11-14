@@ -54,7 +54,7 @@
    a) 환경 변수 설정<br>
    
       $ cd try-cb-python
-      $ export CB_HOST=http://127.0.0.1
+      $ export CB_HOST=127.0.0.1
       $ export CB_USER=Administrator
       $ export CB_PSWD=password
       
