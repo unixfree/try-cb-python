@@ -83,6 +83,7 @@
 
    DB(Couchbase)는 http://localhost:8091 로 접속하고, <br>
    Backend(Flask)는 http://localhost:8080, <br>
+   Backend(Flask)의 API(swagger)는 http://localhost:8080/apidocs/, <br>
    Frontend(Vue)는 http://localhost:8081로 접속합니다.<br>
 <br>
    http://localhost:8081 로 접속 후, 계정 하나를 등록(Register) 하고 항공 스케줄 검색/예약/구매 및 호텔 검색을 수행할 수 있습니다.<br>
