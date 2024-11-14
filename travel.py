@@ -858,7 +858,7 @@ def genToken(username):
 
 def auth(bearerHeader, username):
     bearer = bearerHeader.split(" ")[1]
-    return username == jwt.decode(bearer, JWT_SECRET)['user']
+    return username == jwt.decode(bearer, JWT_SECRET, algorithms=['HS256'])['user']
 
 
 def connect_db():
