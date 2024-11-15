@@ -74,6 +74,7 @@
    
       $ cd try-cb-frontend-v2
       $ npm install
+      $ npm audit fix --force (optional)
       
    b) Vue 구동<br>
    
