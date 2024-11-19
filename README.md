@@ -90,10 +90,10 @@
    http://localhost:8081 로 접속 후, 계정 하나를 등록(Register) 하고 항공 스케줄 검색/예약/구매 및 호텔 검색을 수행할 수 있습니다.<br>
 <br>
 
-[Couchbase Server]: https://www.couchbase.com/  <br>
-[Flask]: https://flask.palletsprojects.com/    <br>
-[Python]: https://www.python.org/   <br>
-[Swagger]: https://swagger.io/resources/open-api/  <br>
-[Vue]: https://vuejs.org/  <br>
-[Bootstrap]: https://getbootstrap.com/  <br>
-[카우치베이스 다운로드 사이트]: https://www.couchbase.com/downloads/ <br>
+[Couchbase Server]: https://www.couchbase.com/
+[Flask]: https://flask.palletsprojects.com/    
+[Python]: https://www.python.org/   
+[Swagger]: https://swagger.io/resources/open-api/  
+[Vue]: https://vuejs.org/ 
+[Bootstrap]: https://getbootstrap.com/ 
+[카우치베이스 다운로드 사이트]: https://www.couchbase.com/downloads/
